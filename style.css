@@ -1,0 +1,877 @@
+/* أنماط عامة للموقع بالكامل */
+* {
+    margin: 0; /* إزالة الهوامش الافتراضية */
+    padding: 0; /* إزالة التباعد الداخلي الافتراضي */
+    box-sizing: border-box; /* جعل أبعاد العناصر تشمل الحشو والحدود */
+    font-family: 'Cairo', 'Tajawal', 'Almarai', sans-serif; /* تغيير الخط ليناسب اللغة العربية */
+    -webkit-tap-highlight-color: transparent; /* إزالة تأثير النقر على الأجهزة المحمولة */
+}
+
+/* تعريف متغيرات الألوان والقياسات الأساسية للموقع للاستخدام في جميع أنحاء الكود */
+:root {
+    --primary-color: #003f87; /* اللون الأساسي (أزرق) */
+    --secondary-color: #d6a461; /* اللون الثانوي (ذهبي) */
+    --accent-color: #ce1126; /* لون التأكيد (أحمر) */
+    --light-color: #f4f4f4; /* لون فاتح للخلفيات */
+    --dark-color: #333; /* لون داكن للنصوص */
+    --max-width: 1200px; /* الحد الأقصى لعرض المحتوى */
+}
+
+/* تفعيل التمرير السلس بين أقسام الصفحة */
+html {
+    scroll-behavior: smooth;
+}
+
+/* تنسيق عام لجسم الصفحة */
+body {
+    background-color: #fff; /* خلفية بيضاء */
+    color: var(--dark-color); /* لون النص الأساسي */
+    line-height: 1.6; /* ارتفاع السطر */
+}
+
+/* تنسيق الحاوية الرئيسية التي تحتوي على المحتوى في كل قسم */
+.container {
+    max-width: var(--max-width); /* الحد الأقصى للعرض */
+    margin: 0 auto; /* توسيط المحتوى أفقياً */
+    padding: 0 20px; /* تباعد داخلي من اليمين واليسار */
+}
+
+/* تنسيق الصور ليتم احتواؤها داخل العناصر */
+img {
+    max-width: 100%;
+}
+
+/* إزالة نقاط القوائم الافتراضية */
+ul {
+    list-style: none;
+}
+
+/* تنسيق الروابط */
+a {
+    text-decoration: none; /* إزالة التسطير الافتراضي للروابط */
+    color: var(--dark-color); /* لون الروابط */
+}
+
+/* تنسيق العناوين */
+h1, h2, h3 {
+    margin-bottom: 20px; /* هامش سفلي للعناوين */
+}
+
+/* تنسيق خاص للعناوين من المستوى الثاني */
+h2 {
+    color: var(--primary-color); /* لون العنوان */
+    text-align: center; /* محاذاة النص للوسط */
+    padding-bottom: 10px; /* تباعد سفلي داخلي */
+    border-bottom: 2px solid var(--secondary-color); /* خط تحت العنوان */
+    display: inline-block; /* عرض العنصر كعنصر مضمن-كتلي */
+}
+
+/* تنسيق الأزرار */
+.btn {
+    display: inline-block; /* عرض العنصر كعنصر مضمن-كتلي */
+    background: var(--primary-color); /* لون خلفية الزر */
+    color: #fff; /* لون النص */
+    padding: 12px 30px; /* تباعد داخلي */
+    border: none; /* بدون حدود */
+    border-radius: 4px; /* تدوير الزوايا */
+    cursor: pointer; /* مؤشر اليد عند التحويم */
+    font-size: 16px; /* حجم الخط */
+    font-weight: bold; /* خط سميك */
+    transition: all 0.3s ease; /* انتقال سلس عند التغيير */
+}
+
+/* تأثير التحويم على الأزرار */
+.btn:hover {
+    background: var(--secondary-color); /* تغيير لون الخلفية عند التحويم */
+    color: var(--dark-color); /* تغيير لون النص */
+}
+
+/* تنسيق الأقسام الرئيسية */
+.section {
+    padding: 80px 0; /* تباعد علوي وسفلي */
+}
+
+/* تنسيق رأس الصفحة (الهيدر) */
+header {
+    background-color: #fff; /* خلفية بيضاء */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    position: fixed; /* تثبيت الهيدر */
+    top: 0; /* في أعلى الصفحة */
+    width: 100%; /* عرض كامل */
+    z-index: 100; /* طبقة عليا */
+    transition: transform 0.4s ease; /* انتقال سلس عند التحريك */
+}
+
+/* تنسيق حاوية الهيدر */
+header .container {
+    display: flex; /* عرض مرن */
+    justify-content: space-between; /* توزيع العناصر بالتساوي */
+    align-items: center; /* محاذاة العناصر رأسياً */
+    padding: 10px 20px; /* تباعد داخلي */
+}
+
+/* تنسيق قسم الشعار */
+.logo {
+    flex: 1; /* نسبة مرنة */
+    display: flex;
+    align-items: center;
+}
+
+/* تنسيق صورة الشعار */
+.logo img {
+    height: 70px; /* ارتفاع ثابت */
+    width: auto; /* عرض تلقائي */
+    object-fit: contain; /* احتواء الصورة بدون تشويه */
+    border-radius: 50%; /* جعل الحواف دائرية */
+}
+
+/* تنسيق نص BNS بجوار الشعار */
+.logo-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin-right: 15px;
+    letter-spacing: 1px;
+}
+
+/* تنسيق قائمة التنقل */
+nav {
+    flex: 2; /* نسبة مرنة أكبر من الشعار */
+}
+
+/* تنسيق عناصر قائمة التنقل */
+nav ul {
+    display: flex; /* عرض مرن أفقي */
+    justify-content: flex-end; /* محاذاة للنهاية */
+}
+
+/* تنسيق عناصر القائمة */
+nav ul li {
+    margin: 0 15px; /* هامش جانبي */
+}
+
+/* تنسيق روابط القائمة */
+nav ul li a {
+    display: block;
+    padding: 15px 25px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    color: var(--dark-color);
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease, padding 0.3s ease;
+    position: relative;
+}
+
+/* تأثير التحويم على روابط القائمة */
+nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* تنسيق زر القائمة للشاشات الصغيرة */
+.mobile-menu {
+    display: none; /* إخفاء افتراضي */
+    font-size: 24px; /* حجم الأيقونة */
+    cursor: pointer; /* مؤشر اليد */
+}
+
+/* تنسيق قسم البطل (Hero) الرئيسي */
+.hero {
+    background: url('img/خلفية.jpg') no-repeat center center/cover; /* تغيير مسار الصورة إلى الصورة الموجودة */
+    height: 100vh; /* ارتفاع كامل للشاشة */
+    color: #fff; /* لون النص أبيض */
+    display: flex; /* عرض مرن */
+    align-items: center; /* محاذاة وسطية */
+    text-align: center; /* محاذاة النص للوسط */
+    margin-top: 60px; /* هامش علوي لتعويض الهيدر */
+    position: relative; /* إضافة موضع نسبي للعنصر */
+}
+
+/* تحسين وضوح النص على خلفية الصورة */
+.hero .container {
+    background-color: rgba(0, 0, 0, 0.6); /* زيادة تعتيم خلفية المحتوى */
+    padding: 30px 40px; /* زيادة التباعد الداخلي */
+    border-radius: 10px; /* تدوير الزوايا */
+    max-width: 800px; /* تحديد العرض الأقصى */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4); /* إضافة ظل للمحتوى */
+}
+
+/* تعزيز مظهر النص في القسم الرئيسي */
+.hero h1 {
+    font-size: 3rem; /* حجم الخط */
+    margin-bottom: 20px; /* هامش سفلي */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
+}
+
+/* تنسيق الفقرة التوضيحية تحت العنوان */
+.hero p {
+    font-size: 1.5rem; /* حجم الخط */
+    margin-bottom: 30px; /* هامش سفلي */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* إضافة ظل للنص */
+}
+
+/* تنسيق قسم الوعد والقانون */
+.content-box {
+    display: flex; /* عرض مرن */
+    flex-wrap: wrap; /* التفاف العناصر */
+    justify-content: center; /* محاذاة وسطية أفقية */
+    gap: 30px; /* مسافة بين العناصر */
+    margin-top: 40px; /* هامش علوي */
+}
+
+/* تنسيق صناديق المحتوى */
+.box {
+    background-color: var(--light-color); /* لون الخلفية */
+    border-radius: 8px; /* تدوير الزوايا */
+    padding: 30px; /* تباعد داخلي */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    flex: 1; /* نسبة مرنة */
+    min-width: 300px; /* حد أدنى للعرض */
+}
+
+/* تنسيق عنوان الصندوق */
+.box h3 {
+    color: var(--primary-color); /* لون العنوان */
+    text-align: center; /* محاذاة وسطية */
+    margin-bottom: 20px; /* هامش سفلي */
+}
+
+/* تنسيق عناصر القائمة داخل الصندوق */
+.box ul li {
+    margin-bottom: 10px; /* هامش سفلي */
+    padding-right: 20px; /* تباعد داخلي من اليمين */
+    position: relative; /* موضع نسبي */
+}
+
+/* إضافة نقطة قبل عناصر القائمة */
+.box ul li::before {
+    content: "•"; /* رمز النقطة */
+    color: var(--secondary-color); /* لون النقطة */
+    font-weight: bold; /* سماكة النقطة */
+    display: inline-block; /* عرض مضمن-كتلي */
+    width: 20px; /* عرض ثابت */
+    margin-left: 5px; /* هامش يساري */
+}
+
+/* تنسيق قسم العلامة الكشفية */
+.emblem-container {
+    display: flex; /* عرض مرن */
+    flex-wrap: wrap; /* التفاف العناصر */
+    justify-content: center; /* محاذاة وسطية أفقية */
+    align-items: center; /* محاذاة وسطية رأسية */
+    gap: 30px; /* مسافة بين العناصر */
+    margin-top: 40px; /* هامش علوي */
+}
+
+/* تنسيق قسم صورة العلامة */
+.emblem-image {
+    flex: 1; /* نسبة مرنة */
+    text-align: center; /* محاذاة وسطية */
+    min-width: 300px; /* حد أدنى للعرض */
+}
+
+/* تنسيق صورة العلامة */
+.emblem-image img {
+    max-width: 300px; /* حد أقصى للعرض */
+    height: auto; /* ارتفاع تلقائي */
+    object-fit: contain; /* احتواء الصورة */
+}
+
+/* تنسيق قسم معنى العلامة */
+.emblem-meaning {
+    flex: 2; /* نسبة مرنة أكبر */
+    min-width: 300px; /* حد أدنى للعرض */
+}
+
+/* تنسيق عنوان قسم معنى العلامة */
+.emblem-meaning h3 {
+    color: var(--primary-color); /* لون العنوان */
+    margin-bottom: 20px; /* هامش سفلي */
+}
+
+/* تنسيق فقرات شرح معنى العلامة */
+.emblem-meaning p {
+    margin-bottom: 15px; /* هامش سفلي */
+}
+
+/* تنسيق قسم العقد والرابطات */
+.knots-container {
+    display: flex; /* عرض مرن */
+    flex-wrap: wrap; /* التفاف العناصر */
+    justify-content: center; /* محاذاة وسطية أفقية */
+    gap: 20px; /* مسافة بين العناصر */
+    margin-top: 40px; /* هامش علوي */
+}
+
+/* تنسيق عناصر العقد */
+.knot-item {
+    background-color: var(--light-color); /* لون الخلفية */
+    border-radius: 8px; /* تدوير الزوايا */
+    padding: 20px; /* تباعد داخلي */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    text-align: center; /* محاذاة وسطية */
+    flex: 1; /* نسبة مرنة */
+    min-width: 250px; /* حد أدنى للعرض */
+    max-width: 300px; /* حد أقصى للعرض */
+    transition: transform 0.3s ease; /* انتقال سلس عند التحويم */
+}
+
+/* تأثير التحويم على عناصر العقد */
+.knot-item:hover {
+    transform: translateY(-10px); /* رفع العنصر قليلاً للأعلى */
+}
+
+/* تنسيق عنوان العقدة */
+.knot-item h3 {
+    color: var(--primary-color); /* لون العنوان */
+    margin: 15px 0; /* هامش علوي وسفلي */
+}
+
+/* تنسيق قسم أنواع النيران */
+.fire-container {
+    display: flex; /* عرض مرن */
+    flex-wrap: wrap; /* التفاف العناصر */
+    justify-content: center; /* محاذاة وسطية أفقية */
+    gap: 20px; /* مسافة بين العناصر */
+    margin-top: 40px; /* هامش علوي */
+}
+
+/* تنسيق عناصر النيران */
+.fire-item {
+    background-color: var(--light-color); /* لون الخلفية */
+    border-radius: 8px; /* تدوير الزوايا */
+    padding: 20px; /* تباعد داخلي */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+    text-align: center; /* محاذاة وسطية */
+    flex: 1; /* نسبة مرنة */
+    min-width: 280px; /* حد أدنى للعرض */
+    max-width: 350px; /* حد أقصى للعرض */
+    transition: transform 0.3s ease; /* انتقال سلس عند التحويم */
+}
+
+/* تأثير التحويم على عناصر النيران */
+.fire-item:hover {
+    transform: translateY(-10px); /* رفع العنصر قليلاً للأعلى */
+}
+
+/* تنسيق عنوان النار */
+.fire-item h3 {
+    color: var(--primary-color); /* لون العنوان */
+    margin: 15px 0; /* هامش علوي وسفلي */
+}
+
+/* تنسيق صور النيران */
+.fire-item img {
+    width: 100%; /* عرض كامل */
+    height: 200px; /* ارتفاع ثابت */
+    object-fit: cover; /* تغطية كاملة للمساحة */
+    border-radius: 6px; /* تدوير الزوايا */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2); /* ظل خفيف */
+}
+
+/* تنسيق تذييل الصفحة (الفوتر) */
+footer {
+    background-color: var(--primary-color); /* خلفية زرقاء داكنة */
+    color: #fff; /* لون النص أبيض */
+    padding: 60px 0 20px; /* تباعد داخلي - أكبر من الأعلى وأقل من الأسفل */
+}
+
+/* تنسيق محتوى الفوتر الرئيسي */
+.footer-content {
+    display: flex; /* عرض مرن */
+    flex-wrap: wrap; /* التفاف العناصر عند تقليص الشاشة */
+    justify-content: space-between; /* توزيع العناصر بمسافات متساوية */
+    gap: 30px; /* المسافة بين العناصر */
+    margin-bottom: 40px; /* هامش سفلي قبل حقوق النشر */
+}
+
+/* تنسيق الأقسام الثلاثة في الفوتر: الشعار، الروابط، معلومات الاتصال */
+.footer-logo, .footer-links, .footer-contact {
+    flex: 1; /* توزيع متساوٍ لعرض الأقسام */
+    min-width: 250px; /* حد أدنى للعرض عند التصغير */
+}
+
+/* تنسيق شعار الفوتر */
+.footer-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-logo img {
+    height: 100px; /* ارتفاع ثابت */
+    width: auto; /* عرض تلقائي */
+    object-fit: contain; /* احتواء الصورة */
+    background-color: rgba(255, 255, 255, 0.9); /* خلفية بيضاء شبه شفافة */
+    padding: 10px; /* تباعد داخلي */
+    border-radius: 50%; /* تدوير الزوايا */
+}
+
+/* تنسيق نص BNS في الفوتر */
+.footer-logo .logo-text {
+    color: var(--secondary-color);
+    margin: 10px 0;
+    font-size: 24px;
+}
+
+/* تنسيق فقرة تحت الشعار */
+.footer-logo p {
+    margin-top: 15px; /* هامش علوي */
+}
+
+/* تنسيق عناوين الأقسام في الفوتر */
+.footer-links h3, .footer-contact h3 {
+    margin-bottom: 20px; /* هامش سفلي */
+    color: var(--secondary-color); /* لون ذهبي للعناوين */
+}
+
+/* تنسيق عناصر قائمة الروابط */
+.footer-links ul li {
+    margin-bottom: 10px; /* هامش سفلي */
+}
+
+/* تنسيق روابط الفوتر */
+.footer-links ul li a {
+    color: #fff; /* لون أبيض */
+    transition: color 0.3s; /* انتقال سلس للون */
+}
+
+/* تأثير التحويم على روابط الفوتر */
+.footer-links ul li a:hover {
+    color: var(--secondary-color); /* تغيير اللون للذهبي عند التحويم */
+}
+
+/* تنسيق فقرات معلومات الاتصال */
+.footer-contact p {
+    margin-bottom: 15px; /* هامش سفلي */
+}
+
+/* تنسيق أيقونات معلومات الاتصال */
+.footer-contact i {
+    margin-left: 10px; /* هامش يساري */
+}
+
+/* تنسيق حاوية أيقونات وسائل التواصل الاجتماعي */
+.social-icons {
+    display: flex; /* عرض مرن أفقي */
+    gap: 15px; /* المسافة بين الأيقونات */
+    margin-top: 20px; /* هامش علوي */
+}
+
+/* تنسيق روابط أيقونات التواصل الاجتماعي */
+.social-icons a {
+    display: inline-block; /* عرض مضمن-كتلي */
+    background: #fff; /* خلفية بيضاء */
+    color: var(--primary-color); /* لون أزرق للأيقونة */
+    width: 40px; /* عرض ثابت */
+    height: 40px; /* ارتفاع ثابت */
+    border-radius: 50%; /* شكل دائري */
+    text-align: center; /* محاذاة وسطية */
+    line-height: 40px; /* محاذاة رأسية للأيقونة */
+    transition: all 0.3s ease; /* انتقال سلس للتأثيرات */
+}
+
+/* تأثير التحويم على أيقونات التواصل */
+.social-icons a:hover {
+    background: var(--secondary-color); /* خلفية ذهبية */
+    color: #fff; /* لون أبيض للأيقونة */
+}
+
+/* تنسيق قسم حقوق النشر */
+.copyright {
+    text-align: center; /* محاذاة وسطية */
+    padding-top: 20px; /* تباعد علوي */
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* خط فاصل شفاف */
+}
+
+/* إخفاء الأيقونات في القائمة الرئيسية */
+nav ul li i.nav-icon {
+    display: none; /* إخفاء افتراضي للرموز */
+}
+
+/* تنسيق القائمة الرئيسية للشاشات المتنقلة */
+@media (max-width: 768px) {
+    nav {
+        display: block;
+        position: fixed;
+        top: 90px;
+        right: -100%;
+        width: 80%;
+        height: calc(100vh - 90px);
+        background-color: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+        z-index: 99;
+        transition: right 0.3s ease-in-out;
+        overflow-y: auto;
+        border-radius: 0 0 0 20px;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 30px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+        width: 100%;
+        text-align: right;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    nav ul li::before {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        width: 4px;
+        background-color: transparent;
+        transition: background-color 0.3s ease;
+    }
+
+    nav ul li:hover::before {
+        background-color: var(--secondary-color);
+    }
+    
+    nav ul li:hover {
+        background-color: rgba(0, 63, 135, 0.1);
+    }
+
+    /* تحسين شكل الروابط */
+    nav ul li a {
+        padding: 15px 25px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+    
+    nav ul li a:hover {
+        color: var(--primary-color);
+        background-color: rgba(0, 63, 135, 0.05);
+    }
+    
+    nav ul li a.active {
+        color: var(--primary-color);
+        background-color: rgba(0, 63, 135, 0.15);
+    }
+    
+    /* إظهار الأيقونات فقط في القائمة الجانبية عند فتحها */
+    nav.active ul li i.nav-icon {
+        display: inline-block;
+        margin-left: 10px;
+        color: var(--secondary-color);
+        width: 20px;
+        text-align: center;
+        transition: color 0.3s ease;
+    }
+    
+    nav.active ul li a:hover i.nav-icon, 
+    nav.active ul li a.active i.nav-icon {
+        color: var(--primary-color);
+    }
+
+    /* تنسيق شريط التمرير للقائمة الجانبية */
+    nav::-webkit-scrollbar {
+        width: 4px;
+    }
+    
+    nav::-webkit-scrollbar-track {
+        background: rgba(241, 241, 241, 0.5);
+    }
+    
+    nav::-webkit-scrollbar-thumb {
+        background: var(--secondary-color);
+        border-radius: 10px;
+    }
+    
+    nav::-webkit-scrollbar-thumb:hover {
+        background: var(--primary-color);
+    }
+
+    /* تحسين تأثير الخلفية المظللة */
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 98;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        backdrop-filter: blur(3px);
+        -webkit-backdrop-filter: blur(3px);
+    }
+
+    .overlay.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .mobile-menu {
+        display: block;
+        font-size: 28px;
+        padding: 5px 10px;
+        cursor: pointer;
+        color: var(--primary-color);
+        transition: color 0.3s ease;
+    }
+    
+    .mobile-menu:hover {
+        color: var(--secondary-color);
+    }
+
+    .hero h1 {
+        font-size: 2.5rem; /* تقليل حجم العنوان الرئيسي */
+    }
+
+    .hero p {
+        font-size: 1.2rem; /* تقليل حجم الفقرة تحت العنوان */
+    }
+
+    .section {
+        padding: 60px 0; /* تقليل التباعد العمودي للأقسام */
+    }
+    
+    /* تعديل مظهر زر القسم الرئيسي للشاشات المتوسطة */
+    .hero .btn {
+        padding: 12px 30px; /* تقليل التباعد الداخلي */
+        font-size: 16px; /* تقليل حجم الخط */
+    }
+    
+    /* تعديل تباعد المحتوى في القسم الرئيسي */
+    .hero .container {
+        padding: 25px 30px; /* تقليل التباعد الداخلي */
+        max-width: 90%; /* تحديد العرض القصوى بنسبة */
+    }
+}
+
+/* تنسيقات التصميم المتجاوب للشاشات الصغيرة جداً */
+@media (max-width: 576px) {
+    .hero h1 {
+        font-size: 2rem; /* تقليل أكبر لحجم العنوان الرئيسي */
+    }
+
+    .hero p {
+        font-size: 1rem; /* تقليل أكبر لحجم الفقرة */
+    }
+
+    .box, .emblem-image, .emblem-meaning, .knot-item, .fire-item {
+        min-width: 100%; /* جعل العناصر تأخذ عرض كامل */
+    }
+
+    /* تحسين حجم صور النيران والعقد في الشاشات الصغيرة */
+    .fire-item img, .knot-item img {
+        height: 180px; /* تقليل ارتفاع الصور */
+    }
+
+    /* تحسين قسم الفوتر للشاشات الصغيرة */
+    .footer-content {
+        flex-direction: column; /* ترتيب عمودي */
+        gap: 40px; /* زيادة المسافة بين الأقسام */
+    }
+
+    .footer-logo, .footer-links, .footer-contact {
+        text-align: center; /* محاذاة النص للوسط */
+        width: 100%; /* عرض كامل */
+    }
+
+    .social-icons {
+        justify-content: center; /* توسيط أيقونات التواصل الاجتماعي */
+    }
+
+    /* تعديل مظهر زر القسم الرئيسي للشاشات الصغيرة */
+    .hero .btn {
+        padding: 10px 25px; /* تقليل التباعد الداخلي أكثر */
+        font-size: 15px; /* تقليل حجم الخط أكثر */
+        width: auto; /* عرض تلقائي */
+        max-width: none; /* إلغاء الحد الأقصى للعرض */
+        margin: 15px 0; /* تعديل الهوامش */
+    }
+}
+
+/* تحسين العناصر القابلة للنقر على الأجهزة المحمولة */
+@media (hover: none) {
+    /* زيادة حجم العناصر القابلة للنقر للأجهزة اللمسية */
+    nav ul li a, .footer-links ul li a, .btn, .social-icons a {
+        padding: 14px 20px; /* زيادة مساحة النقر */
+    }
+    
+    /* إزالة تأثيرات التحويم التي لا تعمل على الأجهزة اللمسية وتعويضها بتأثيرات بديلة */
+    .knot-item:hover, .fire-item:hover {
+        transform: none; /* إلغاء التأثير عند التحويم */
+    }
+    
+    .knot-item, .fire-item {
+        transition: transform 0.3s ease; /* إبقاء الانتقال السلس */
+    }
+    
+    .knot-item:active, .fire-item:active {
+        transform: scale(0.98); /* تقليل حجم العنصر قليلاً عند النقر */
+    }
+}
+
+/* تحسين المسافات بين العناصر للشاشات الصغيرة جداً */
+@media (max-width: 375px) {
+    /* تقليل التباعد الداخلي للعناصر */
+    .box, .knot-item, .fire-item {
+        padding: 15px; /* تقليل التباعد الداخلي */
+        margin-bottom: 15px; /* تقليل الهامش السفلي */
+    }
+    
+    /* تقليل هوامش الأقسام */
+    .section {
+        padding: 30px 0; /* تقليل التباعد العمودي للأقسام */
+    }
+    
+    /* تصغير حجم الشعار في الهيدر */
+    .logo img {
+        height: 50px; /* تقليل ارتفاع الشعار */
+    }
+    
+    /* تصغير العناوين */
+    h2 {
+        font-size: 1.5rem; /* تقليل حجم العناوين الرئيسية */
+    }
+    
+    h3 {
+        font-size: 1.2rem; /* تقليل حجم العناوين الفرعية */
+    }
+
+    /* تحسين قسم البطل للشاشات الصغيرة جداً */
+    .hero {
+        padding: 0 10px; /* تقليل التباعد الجانبي */
+    }
+
+    /* زيادة وضوح الأزرار على الشاشات الصغيرة */
+    .btn {
+        padding: 12px 25px; /* تعديل مساحة النقر */
+        font-size: 16px; /* تعديل حجم النص */
+        width: 90%; /* عرض شبه كامل */
+        max-width: 250px; /* الحد الأقصى للعرض */
+        margin: 10px auto; /* توسيط العنصر */
+    }
+
+    /* تحسين قائمة القانون الكشفي على الشاشات الصغيرة */
+    .box ul li {
+        padding: 8px 25px 8px 0; /* تقليل التباعد الداخلي */
+        font-size: 0.9rem; /* تقليل حجم النص */
+    }
+
+    /* تقليل حجم أيقونات التواصل الاجتماعي */
+    .social-icons a {
+        width: 40px; /* تقليل العرض */
+        height: 40px; /* تقليل الارتفاع */
+        font-size: 16px; /* تقليل حجم الأيقونة */
+    }
+}
+
+/* تأثيرات الرسوم المتحركة */
+@keyframes fadeInUp {
+    from {
+        opacity: 0; /* بدء بشفافية كاملة */
+        transform: translateY(30px); /* بدء من أسفل */
+    }
+    to {
+        opacity: 1; /* انتهاء بعتامة كاملة */
+        transform: translateY(0); /* انتهاء بالموضع الطبيعي */
+    }
+}
+
+/* تطبيق الإعدادات الأولية للعناصر المتحركة */
+.box, .knot-item, .fire-item, .emblem-container {
+    opacity: 0; /* بدء بشفافية */
+    transform: translateY(30px); /* بدء من أسفل */
+    transition: opacity 0.8s ease, transform 0.8s ease; /* انتقال سلس */
+}
+
+/* تنسيق العناصر عند ظهورها في منطقة العرض */
+.in-view {
+    opacity: 1; /* إظهار كامل */
+    transform: translateY(0); /* موضع طبيعي */
+}
+
+/* تنسيق روابط التنقل النشطة */
+nav ul li a.active {
+    color: var(--primary-color); /* لون أزرق للرابط النشط */
+}
+
+/* تطبيق الخط تحت الرابط النشط */
+nav ul li a.active::after {
+    width: 100%; /* عرض كامل للخط */
+}
+
+/* دعم اللمس للأجهزة المحمولة */
+.touch-active {
+    opacity: 0.8; /* تقليل العتامة بعض الشيء عند اللمس */
+    transform: scale(0.98); /* تقليل حجم العنصر قليلاً عند اللمس */
+}
+
+/* تأثير النقرة السريعة على الأجهزة اللمسية */
+.touch-tap {
+    background-color: rgba(214, 164, 97, 0.2); /* لون خلفية خفيف */
+    transform: scale(1); /* إعادة الحجم الطبيعي بسرعة */
+    transition: transform 0.15s ease, background-color 0.15s ease; /* انتقال سريع */
+}
+
+/* نمط زر إغلاق القائمة */
+.fa-times {
+    color: var(--accent-color); /* لون أحمر لأيقونة الإغلاق */
+}
+
+/* تحسين مظهر الزر في القسم الرئيسي */
+.hero .btn {
+    background: rgba(0, 63, 135, 0.8); /* خلفية زرقاء نصف شفافة */
+    color: #fff; /* لون النص أبيض */
+    padding: 15px 35px; /* زيادة التباعد الداخلي */
+    font-size: 18px; /* زيادة حجم الخط */
+    border: 2px solid #fff; /* إضافة حدود بيضاء */
+    border-radius: 30px; /* زيادة تدوير الزوايا */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* إضافة ظل للزر */
+    transition: all 0.3s ease; /* انتقال سلس للتأثيرات */
+}
+
+/* تأثير التحويم على زر القسم الرئيسي */
+.hero .btn:hover {
+    background: var(--secondary-color); /* خلفية ذهبية */
+    color: #fff; /* لون النص أبيض */
+    transform: translateY(-3px); /* رفع الزر قليلاً للأعلى */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* زيادة الظل */
+}
+
+/* تنسيق قسم الأطفال */
+.children-container {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.children-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    margin-bottom: 25px;
+}
+
+.children-container p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+/* تعديل حجم صورة الأطفال للشاشات الصغيرة */
+@media (max-width: 576px) {
+    .children-image {
+        border-radius: 10px;
+    }
+    
+    .children-container p {
+        font-size: 1rem;
+    }
+}
